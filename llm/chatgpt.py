@@ -13,7 +13,7 @@ def init_chatgpt(OPENAI_API_KEY, OPENAI_GROUP_ID, model):
     #     openai.api_key = OPENAI_API_KEY
     #     openai.organization = OPENAI_GROUP_ID
     openai.api_key = OPENAI_API_KEY
-    openai.organization = OPENAI_GROUP_ID
+    #openai.organization = OPENAI_GROUP_ID
 
 
 def ask_completion(model, batch, temperature):
@@ -65,11 +65,12 @@ def ask_llm(model: str, batch: list, temperature: float, n:int):
                 messages = [{"role": "user", "content": batch[0]}]
                 response = ask_chat(model, messages, temperature, n)
                 response['response'] = [response['response']]
+            time.sleep(5)
             break
         except openai.error.RateLimitError:
             n_repeat += 1
             print(f"Repeat for the {n_repeat} times for RateLimitError", end="\n")
-            time.sleep(1)
+            time.sleep(10)
             continue
         except json.decoder.JSONDecodeError:
             n_repeat += 1
