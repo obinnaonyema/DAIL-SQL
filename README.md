@@ -85,48 +85,39 @@ python ask_llm.py \
 --model gpt-4 \
 --question [prompt_dir]
 ```
-With self-consistency voting:
-```
-python ask_llm.py \
---openai_api_key [your_openai_api_key]  \
---model gpt-4 \
---question [prompt_dir] \
---n 5 \
---db_dir ./dataset/spider/database \
---temperature 1.0
-```
-
-### Running Example
-```
-bash run_dail_sql_mini.sh [your_openai_api_key]
-```
 
 ## Experiments
 
-In our works, we systematically study prompt engineering for LLM-based Text-to-SQL methods, 
+In the original paper, the authors systematically study prompt engineering for LLM-based Text-to-SQL methods, 
 including five question representations, two prompt components, four example selections, and three example organizations on four LLMs. 
 The study sheds light on identifying suitable question representations and key points to leverage the in-context learning capacity of LLMs for Text-to-SQL task.
-We present our experimental results in the Spider train split. 
-Here, we take [Graphix](https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/graphix) as our preliminary model to pre-generate the SQL query for acquiring query similarity.
-Please refer to the [Test Suites](https://github.com/taoyds/test-suite-sql-eval) for evaluation metrics.
+
+In our re-implementation, we run a single method to evaluate the broad concepts.
+
+Evaluation done with the following module: [Test Suites](https://github.com/taoyds/test-suite-sql-eval).
 
 ### Question Representations
-We evaluate five question representations summarized from other works under zero-shot scenario, 
+The authors of the original paper evaluate five question representations summarized from other works under zero-shot scenario, 
 employing four LLMs: GPT-4, GPT-3.5-TURBO, TEXT-DAVINCI-003, and Vicuna-33B. We find Code Representation Prompt and OpenAI Demostration Prompt are preferred.
 <br>
-<div align="center"><img width="45%" src="img/openai_0shot_em.png"><img width="45%" src="img/openai_0shot_em.png"></div>
+<div align="center"><img width="45%" src="src/img/openai_0shot_em.png"><img width="45%" src="src/img/openai_0shot_em.png"></div>
 <br>
 We also investigate the impact of foreign key and "with no explanation" rule implication. Both the foreign key and the "with no explanation" rule implication
 are beneficial for Text-to-SQL task.
 <br>
-<div align="center"><img width="45%" src="img/component_foreign_key_em.png"><img width="45%" src="img/component_foreign_key_ex.png"></div>
-<div align="center"><img width="45%" src="img/component_explanation_em.png"><img width="45%" src="img/component_explanation_ex.png"></div>
+<div align="center"><img width="45%" src="src/img/component_foreign_key_em.png"><img width="45%" src="img/component_foreign_key_ex.png"></div>
+<div align="center"><img width="45%" src="src/img/component_explanation_em.png"><img width="45%" src="img/component_explanation_ex.png"></div>
 <br>
 
 ## Evaluation of DAIL-SQL
-In evaluation, we take GPT-4 itself as the preliminary model for acquiring query similarity. 
+In evaluation, the authors of the original paper take GPT-4 itself as the preliminary model for acquiring query similarity. 
 The commands are shown in `run_dail_sql.sh` and `run_dail_sql_with_sc.sh`.
 | Method    | Dev EM    | Dev EX    | Test EM   | Test EX   |
 | --------- | --------- | --------- | --------- | --------- |
 | DAIL-SQL+GPT-4    | 70.0  | 83.1  | 66.5  | 86.2  |
 | DAIL-SQL+GPT-4+Self-consistency   | 68.7  | 83.6  | 66.0  | 86.6  |
+
+In our re-implementation, we test GPT-4 with overall accuracy of 74.4% on the subset of data we ran.
+
+<img src="execution_accuracy_reimplementation.png" alt="execution accuracy for our experiment" width="800" height="480" />
+

@@ -199,6 +199,7 @@ def get_exec_output(
             return "exception", []
 
     db_dir = os.path.dirname(db)
+    db_dir='src/'+db_dir
     db_paths = [os.path.join(db_dir, basename) for basename in os.listdir(db_dir) if ".sqlite" in basename]
     # print(db_paths)
     if progress_bar_for_each_datapoint:
