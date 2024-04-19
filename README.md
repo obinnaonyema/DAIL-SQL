@@ -37,7 +37,7 @@ In addition, set up the Python environment:
 conda create -n DAIL-SQL python=3.8
 conda activate DAIL-SQL
 python -m pip install --upgrade pip
-pip install -r requirements.txt
+pip install -r requirements_updated.txt
 python nltk_downloader.py
 ```
 
@@ -102,7 +102,7 @@ employing four LLMs: GPT-4, GPT-3.5-TURBO, TEXT-DAVINCI-003, and Vicuna-33B. We 
 <br>
 <div align="center"><img width="45%" src="src/img/openai_0shot_em.png"><img width="45%" src="src/img/openai_0shot_em.png"></div>
 <br>
-We also investigate the impact of foreign key and "with no explanation" rule implication. Both the foreign key and the "with no explanation" rule implication
+They also investigate the impact of foreign key and "with no explanation" rule implication. Both the foreign key and the "with no explanation" rule implication
 are beneficial for Text-to-SQL task.
 <br>
 <div align="center"><img width="45%" src="src/img/component_foreign_key_em.png"><img width="45%" src="img/component_foreign_key_ex.png"></div>
