@@ -15,6 +15,7 @@ QUESTION_FILE = "questions.json"
 
 
 if __name__ == '__main__':
+    #extract args passed when python file is executed
     parser = argparse.ArgumentParser()
     parser.add_argument("--question", type=str)
     parser.add_argument("--openai_api_key", type=str)

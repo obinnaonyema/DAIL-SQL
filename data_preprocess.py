@@ -105,7 +105,7 @@ def bird_pre_process(bird_dir, with_evidence=False):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data_dir", type=str, default="./src/dataset/spider")
+    parser.add_argument("--data_dir", type=str, default="./dataset/spider")
     parser.add_argument("--data_type", type=str, choices=["spider", "bird"], default="spider")
     args = parser.parse_args()
 
@@ -131,7 +131,7 @@ if __name__ == '__main__':
         schema_linking_producer(spider_dev, spider_train, spider_table, spider_db, spider_dir)
     elif data_type == "bird":
         # schema-linking for bird with evidence
-        bird_dir = './src/dataset/bird'
+        bird_dir = './dataset/bird'
         bird_pre_process(bird_dir, with_evidence=True)
         bird_dev = 'dev.json'
         bird_train = 'train.json'
