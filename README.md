@@ -111,7 +111,7 @@ are beneficial for Text-to-SQL task.
 
 ## Evaluation of DAIL-SQL
 In evaluation, the authors of the original paper take GPT-4 itself as the preliminary model for acquiring query similarity. 
-The commands are shown in `run_dail_sql.sh` and `run_dail_sql_with_sc.sh`.
+
 | Method    | Dev EM    | Dev EX    | Test EM   | Test EX   |
 | --------- | --------- | --------- | --------- | --------- |
 | DAIL-SQL+GPT-4    | 70.0  | 83.1  | 66.5  | 86.2  |
