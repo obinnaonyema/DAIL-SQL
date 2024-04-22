@@ -3,7 +3,7 @@
 DAIL-SQL is a highly effective and efficient approach for optimizing the utilization of LLM on Text-to-SQL.
 It has proven its superiority by achieving a remarkable score of 86.2% on the Spider leaderboard using GPT-4 during testing.
 Notably, it only requires approximately 1600 tokens per question in Spider-dev.
-In addition to this, we have achieved an even higher score of 86.6% on Spider-test through self-consistency voting of GPT-4.
+In addition to this, the authors have achieved an even higher score of 86.6% on Spider-test through self-consistency voting of GPT-4.
 
 >Dawei Gao, Haibin Wang, Yaliang Li, Xiuyu Sun, Yichen Qian, Bolin Ding and Jingren Zhou.
 Text-to-SQL Empowered by Large Language Models: A Benchmark Evaluation.
@@ -14,12 +14,12 @@ Paper link: [arXiv](https://arxiv.org/abs/2308.15363)
 ## Overview
 
 To provide a systematical and in-depth understanding of Text-to-SQL prompt engineering, we empirically evaluate several strategies from prior studies.
-First, we compare several typical question representations in zero-shot scenario with different LLMs, and identify their pros and cons.
-After that, we investigate example selection and organization strategies in few-shot scenario.
-For example selection, we compare different selection strategies and further verify the hypothesis that LLMs learn from the mappings between question and SQL skeleton.
-Regarding example organization, we explore the option of displaying full information, solely SQL queries or question-SQL pair.
+First, the authors compare several typical question representations in zero-shot scenario with different LLMs, and identify their pros and cons.
+After that, the authors investigate example selection and organization strategies in few-shot scenario.
+For example selection, the authors compare different selection strategies and further verify the hypothesis that LLMs learn from the mappings between question and SQL skeleton.
+Regarding example organization, they explore the option of displaying full information, solely SQL queries or question-SQL pair.
 
-Last but not least, our integrated solution, named DAIL-SQL, refreshes the Spider leaderboard with 86.6% execution accuracy, and wins the first place.
+Last but not least, their integrated solution, named DAIL-SQL, refreshes the Spider leaderboard with 86.6% execution accuracy, and wins the first place.
 Compared with previous solutions, DAIL-SQL encodes structure knowledge as SQL statements, selects examples based on their skeleton similarities and removes cross-domain knowledge from examples for token efficiency.
 
 ## Environment Setup
