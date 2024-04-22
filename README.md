@@ -78,7 +78,7 @@ python generate_question.py \
 ```
 
 ### Calling the LLM
-Without voting:
+
 ```
 python ask_llm.py \
 --openai_api_key [your_openai_api_key]  \
